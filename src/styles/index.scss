@@ -30,6 +30,8 @@ header {
   justify-content: flex-end;
   margin: auto;
   padding: 2rem;
+  position: fixed;
+  width: 100vw;
 }
 
 .top-menu {
@@ -43,6 +45,7 @@ input[type="text"] {
   color: $primary-color;
   margin-right: 0.8rem;
   font-family: 'Gravity Regular';
+  outline: transparent;
 }
 
 .side-nav {
@@ -81,7 +84,6 @@ input[type="text"] {
 
 .main {
   @include flex-center;
-  position: absolute;
   height: 100vh;
   width: 100vw;
 }

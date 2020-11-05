@@ -1,0 +1,64 @@
+{
+  "players": [
+    {
+      "name": "Wilnyl",
+      "id": 0,
+      "stocks": {
+        "total":
+        {
+            "totalvalue": "100.000",
+            "owners": 1000,
+            "stockprice": "$100"
+        },
+        "day":
+        {
+            "totalvalue": "90.130",
+            "owners": "+5",
+            "stockprice": "$90"
+        },
+        "week":
+        {
+            "totalvalue": "99.043",
+            "owners": "+5",
+            "stockprice": "$95"
+        }, 
+        "year":
+        {
+            "totalvalue": "63.562",
+            "owners": "+5",
+            "stockprice": "$85"
+        }
+      }    
+    },
+    {
+      "name": "Phil",
+      "id": 1,
+      "stocks": {
+        "total":
+        {
+            "totalvalue": "60.000",
+            "owners": 1000,
+            "stockprice": "$80"
+        },
+        "day":
+        {
+            "totalvalue": "93.250",
+            "owners": "-10",
+            "stockprice": "$20"
+        },
+        "week":
+        {
+            "totalvalue": "69.003",
+            "owners": "-20",
+            "stockprice": "$25"
+        }, 
+        "year":
+        {
+            "totalvalue": "63.562",
+            "owners": "-5",
+            "stockprice": "$45"
+        }
+      }    
+    }
+  ]
+}

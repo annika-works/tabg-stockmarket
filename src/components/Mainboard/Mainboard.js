@@ -2,10 +2,10 @@ import React from 'react';
 import Nav from './Nav';
 import Player from './Player';
 
-const Mainboard = () => (
+const Mainboard = (playerNameSelected) => (
   <main className="main">
     <Nav/>
-    <Player />
+    <Player playerNameSelected={playerNameSelected}/>
   </main>
 );
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import Menu from './Menu';
   
-  const Header = () => (
+  const Header = (onChange,onChangeValue, onKeyDown) => (
     <header>
-      <Menu />
+      <Menu onKeyDown={e => onKeyDown(e)} onChangeValue={onChangeValue} onChange= {e => onChange(e)}/>
     </header>
   );
 
