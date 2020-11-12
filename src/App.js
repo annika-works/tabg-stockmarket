@@ -1,29 +1,31 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Input from './components/common/Input';
 import Button from './components/common/Button';
-import Mainboard from  './components/Mainboard/Mainboard';
 import data from './data/data.json';
+const playerData = data.players;
+// const dataPlayerNames = playerData.map(player => player.name);
 
 function App() {
   const [onChangeValue, setonChangeValue] = useState('');
-  const [inputValue, setInputValue] = useState('');
-  const [player, setPlayer] = useState('Name');
+  const [inputValue, setInputValue] = useState('Wilnyl');
 
-  const playerData = data.players;
-  const dataPlayerNames = playerData.map(player => player.name);
-
-  const onChange = e => setonChangeValue(e.currentTarget.value);
+  const [totalVal, setTotalVal] = useState('10.000');
+  console.log(playerData);
+  
+  const onChange = (e) => {
+    setonChangeValue(e.currentTarget.value)
+  };
 
   const onKeyDown = e => {
     if(e.key === 'Enter') {
       setInputValue(onChangeValue);
       setonChangeValue('');
+    }
   };
 
-  useEffect(() => {
-    const singlePlayerArr = dataPlayerNames.filter(player => player === inputValue);
-    (singlePlayerArr.length === 1)? setPlayer(inputValue) : setPlayer('');
-  }, []);
+  const onTotalClick = () => {
+    setTotalVal(playerData[0].stocks.total.totalvalue);
+  }
 
   return (
     <div className="App">
@@ -49,7 +51,49 @@ function App() {
           />
         </nav>
       </header>
-      <Mainboard playerNameSelected={playerNameSelected}/>
+
+      <main className="main">
+        <nav className="side-nav">
+          <Button
+            label="Total" 
+            id="total"
+            className="btn-primary selected"
+            onClick={() => onTotalClick()}
+          />
+          <Button
+            label="1 day" 
+            className="btn-primary day"
+          />
+          <Button
+            label="1 Week" 
+            className="btn-primary week"
+          />
+          <Button
+            label="1 Month"
+            className="btn-primary month" 
+          />
+          <Button
+            label="1 Year"
+            className="btn-primary year" 
+          />
+        </nav>
+
+        <div className="player">
+          <h1 className="player-name">{inputValue}</h1>
+          <ul className="player-data">
+            <li className="data-el" value="Total Value">
+              <span className="data-value">{totalVal}</span>
+            </li>
+            <li className="data-el" value="Owners">
+              <span className="data-value">1000</span>
+            </li>
+            <li className="data-el" value="Stock Price">
+              <span className="data-value">$100</span>
+            </li>
+          </ul>
+        </div>
+
+      </main>
     </div>
   );
 }
