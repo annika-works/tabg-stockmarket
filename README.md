@@ -11,3 +11,8 @@ Landfall Games AG plans a stockmarket feature for their currently BETA-released 
 - React 
 - Javascript
 - SCSS/SASS
+
+## TBC
+
+- Netlify Deployment
+- RESTful API 
