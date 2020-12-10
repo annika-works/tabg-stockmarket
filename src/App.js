@@ -3,14 +3,14 @@ import Input from './components/common/Input';
 import Button from './components/common/Button';
 import data from './data/data.json';
 const playerData = data.players;
-// const dataPlayerNames = playerData.map(player => player.name);
+const dataPlayerNames = playerData.map(player => player.name);
 
 function App() {
   const [onChangeValue, setonChangeValue] = useState('');
   const [inputValue, setInputValue] = useState('Wilnyl');
 
   const [totalVal, setTotalVal] = useState('10.000');
-  console.log(playerData);
+  console.log(dataPlayerNames);
   
   const onChange = (e) => {
     setonChangeValue(e.currentTarget.value)
@@ -22,9 +22,17 @@ function App() {
       setonChangeValue('');
     }
   };
-
+  
+  const indiPlayer= playerData.find(player => player.name === inputValue);
+  
   const onTotalClick = () => {
-    setTotalVal(playerData[0].stocks.total.totalvalue);
+    const playerExists = dataPlayerNames.includes(inputValue)
+
+    if(!playerExists) {
+      return;
+    }
+
+    setTotalVal(indiPlayer.stocks.total.totalvalue);
   }
 
   return (
@@ -82,12 +90,15 @@ function App() {
           <h1 className="player-name">{inputValue}</h1>
           <ul className="player-data">
             <li className="data-el" value="Total Value">
+              Total Value:
               <span className="data-value">{totalVal}</span>
             </li>
             <li className="data-el" value="Owners">
+              Owners:
               <span className="data-value">1000</span>
             </li>
             <li className="data-el" value="Stock Price">
+              Stock Price:
               <span className="data-value">$100</span>
             </li>
           </ul>
