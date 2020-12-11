@@ -5,12 +5,13 @@ import data from './data/data.json';
 const playerData = data.players;
 const dataPlayerNames = playerData.map(player => player.name);
 
+
 function App() {
   const [onChangeValue, setonChangeValue] = useState('');
   const [inputValue, setInputValue] = useState('Wilnyl');
-
-  const [totalVal, setTotalVal] = useState('10.000');
-  console.log(dataPlayerNames);
+  const [totalVal, setTotalVal] = useState(['10', '20', '30']);
+  // console.log(dataPlayerNames);
+  const indiPlayer = playerData.find(player => player.name === inputValue);
   
   const onChange = (e) => {
     setonChangeValue(e.currentTarget.value)
@@ -23,16 +24,14 @@ function App() {
     }
   };
   
-  const indiPlayer= playerData.find(player => player.name === inputValue);
-  
   const onTotalClick = () => {
-    const playerExists = dataPlayerNames.includes(inputValue)
+    const playerExists = dataPlayerNames.includes(inputValue);
 
     if(!playerExists) {
       return;
     }
 
-    setTotalVal(indiPlayer.stocks.total.totalvalue);
+    setTotalVal([indiPlayer.stocks.total.totalvalue, indiPlayer.stocks.total.owners, indiPlayer.stocks.total.stockprice]);
   }
 
   return (
@@ -71,6 +70,7 @@ function App() {
           <Button
             label="1 day" 
             className="btn-primary day"
+            onClick={() => onTotalClick()}
           />
           <Button
             label="1 Week" 
@@ -91,15 +91,15 @@ function App() {
           <ul className="player-data">
             <li className="data-el" value="Total Value">
               Total Value:
-              <span className="data-value">{totalVal}</span>
+              <span className="data-value">{totalVal[0]}</span>
             </li>
             <li className="data-el" value="Owners">
               Owners:
-              <span className="data-value">1000</span>
+              <span className="data-value">{totalVal[1]}</span>
             </li>
             <li className="data-el" value="Stock Price">
               Stock Price:
-              <span className="data-value">$100</span>
+              <span className="data-value">{totalVal[2]}</span>
             </li>
           </ul>
         </div>
