@@ -13,7 +13,7 @@
         "day":
         {
             "totalvalue": "90.130",
-            "owners": "+5",
+            "owners": "+7",
             "stockprice": "$90"
         },
         "week":
@@ -22,10 +22,16 @@
             "owners": "+5",
             "stockprice": "$95"
         }, 
+        "month":
+        {
+            "totalvalue": "59.023",
+            "owners": "44",
+            "stockprice": "$125"
+        }, 
         "year":
         {
             "totalvalue": "63.562",
-            "owners": "+5",
+            "owners": "+9",
             "stockprice": "$85"
         }
       }    
@@ -52,10 +58,16 @@
             "owners": "-20",
             "stockprice": "$25"
         }, 
+        "month":
+        {
+            "totalvalue": "29.023",
+            "owners": "434",
+            "stockprice": "$725"
+        }, 
         "year":
         {
             "totalvalue": "63.562",
-            "owners": "-5",
+            "owners": "-15",
             "stockprice": "$45"
         }
       }    

@@ -12,6 +12,7 @@ function App() {
   const [totalVal, setTotalVal] = useState(['10', '20', '30']);
   // console.log(dataPlayerNames);
   const indiPlayer = playerData.find(player => player.name === inputValue);
+  const stocks = indiPlayer.stocks;
   
   const onChange = (e) => {
     setonChangeValue(e.currentTarget.value)
@@ -26,12 +27,32 @@ function App() {
   
   const onTotalClick = () => {
     const playerExists = dataPlayerNames.includes(inputValue);
+    if(!playerExists) return;
+    setTotalVal([stocks.total.totalvalue, stocks.total.owners, stocks.total.stockprice]);
+  }
 
-    if(!playerExists) {
-      return;
-    }
+  const onDayClick = () => {
+    const playerExists = dataPlayerNames.includes(inputValue);
+    if(!playerExists) return;
+    setTotalVal([stocks.day.totalvalue, stocks.day.owners, stocks.day.stockprice]);
+  }
 
-    setTotalVal([indiPlayer.stocks.total.totalvalue, indiPlayer.stocks.total.owners, indiPlayer.stocks.total.stockprice]);
+  const onWeekClick = () => {
+    const playerExists = dataPlayerNames.includes(inputValue);
+    if(!playerExists) return;
+    setTotalVal([stocks.week.totalvalue, stocks.week.owners, stocks.week.stockprice]);
+  }
+
+  const onMonthClick = () => {
+    const playerExists = dataPlayerNames.includes(inputValue);
+    if(!playerExists) return;
+    setTotalVal([stocks.month.totalvalue, stocks.month.owners, stocks.month.stockprice]);
+  }
+
+  const onYearClick = () => {
+    const playerExists = dataPlayerNames.includes(inputValue);
+    if(!playerExists) return;
+    setTotalVal([stocks.year.totalvalue, stocks.year.owners, stocks.year.stockprice]);
   }
 
   return (
@@ -70,19 +91,22 @@ function App() {
           <Button
             label="1 day" 
             className="btn-primary day"
-            onClick={() => onTotalClick()}
+            onClick={() => onDayClick()}
           />
           <Button
             label="1 Week" 
             className="btn-primary week"
+            onClick={() => onWeekClick()}
           />
           <Button
             label="1 Month"
             className="btn-primary month" 
+            onClick={() => onMonthClick()}
           />
           <Button
             label="1 Year"
             className="btn-primary year" 
+            onClick={() => onYearClick()}
           />
         </nav>
 
