@@ -10,9 +10,14 @@ function App() {
   const [onChangeValue, setonChangeValue] = useState('');
   const [inputValue, setInputValue] = useState('Wilnyl');
   const [totalVal, setTotalVal] = useState(['10', '20', '30']);
+  const [isActive, setActive] = useState(false);
   // console.log(dataPlayerNames);
   const indiPlayer = playerData.find(player => player.name === inputValue);
   const stocks = indiPlayer.stocks;
+
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
   
   const onChange = (e) => {
     setonChangeValue(e.currentTarget.value)
@@ -29,12 +34,15 @@ function App() {
     const playerExists = dataPlayerNames.includes(inputValue);
     if(!playerExists) return;
     setTotalVal([stocks.total.totalvalue, stocks.total.owners, stocks.total.stockprice]);
+
   }
 
   const onDayClick = () => {
     const playerExists = dataPlayerNames.includes(inputValue);
     if(!playerExists) return;
     setTotalVal([stocks.day.totalvalue, stocks.day.owners, stocks.day.stockprice]);
+
+    toggleClass();
   }
 
   const onWeekClick = () => {
@@ -90,22 +98,22 @@ function App() {
           />
           <Button
             label="1 day" 
-            className="btn-primary day"
+            className={isActive ? 'btn-primary selected': 'btn-primary'}
             onClick={() => onDayClick()}
           />
           <Button
             label="1 Week" 
-            className="btn-primary week"
+            className="btn-primary"
             onClick={() => onWeekClick()}
           />
           <Button
             label="1 Month"
-            className="btn-primary month" 
+            className="btn-primary" 
             onClick={() => onMonthClick()}
           />
           <Button
             label="1 Year"
-            className="btn-primary year" 
+            className="btn-primary" 
             onClick={() => onYearClick()}
           />
         </nav>
