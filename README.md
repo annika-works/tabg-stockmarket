@@ -13,11 +13,10 @@ Currently, the Front-End is so far set for Desktop. Next step is going to hook t
 ## Stack
 
 - React 
-- Javascript
 - SCSS/SASS
 
 ## TBC
 
 - Netlify Deployment
-- RESTful API 
+- PlayFab API
 - D3 Graph Animation
